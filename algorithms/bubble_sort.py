@@ -1,27 +1,49 @@
-# Python program for implementation of Bubble Sort
+import random
+def get_random_nums(size):
+    return [random.randint(0, 10) for num in range(size)]
 
-def bubbleSort(arr):
-	n = len(arr)
+# def bubble_sort(arr):
+#     n = len(arr)
+#
+#     # Traverse through all array elements
+#     for i in range(n - 1):
+#         # range(n) also work but outer loop will repeat one time more than needed.
+#
+#         # Last i elements are already in place
+#         for j in range(0, n - i - 1):
+#
+#             # traverse the array from 0 to n-i-1
+#             # Swap if the element found is greater
+#             # than the next element
+#             if arr[j] > arr[j + 1]:
+#                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+#     return arr
 
-	# Traverse through all array elements
-	for i in range(n-1):
-	# range(n) also work but outer loop will repeat one time more than needed.
+# def bubble_sort(nums):
+#     for i in range(0, len(nums) - 1):
+#         for j in range(0, len(nums) - i - 1):
+#             if nums[j] > nums[j + 1]:
+#                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
+#     return nums
 
-		# Last i elements are already in place
-		for j in range(0, n-i-1):
+# Implement bubble_sort
+def bubble_sort(nums):
+    for i in range(0, len(nums) - 1):
+        for j in range(0, len(nums) - i - 1):
+            if nums[j] > nums[j+1]:
+                nums[j], nums[j+1] = nums[j+1], nums[j]
+    return nums
 
-			# traverse the array from 0 to n-i-1
-			# Swap if the element found is greater
-			# than the next element
-			if arr[j] > arr[j + 1] :
-				arr[j], arr[j + 1] = arr[j + 1], arr[j]
+def my_sort(nums):
+    return bubble_sort(nums)
 
-# Driver code to test above
-arr = [64, 34, 25, 12, 22, 11, 90]
+def test_sort():
+    unsorted_list = get_random_nums(5)
+    print('original unsorted list: ' + str(unsorted_list))
+    sorted_list = sorted(unsorted_list)
+    print('sorted list: ' + str(sorted_list))
+    my_sorted_list = my_sort(unsorted_list)
+    print('my sorted list: ' + str(my_sorted_list))
+    assert sorted_list == my_sorted_list
 
-bubbleSort(arr)
-
-print ("Sorted array is:")
-for i in range(len(arr)):
-	print ("% d" % arr[i]),
-
+test_sort()
