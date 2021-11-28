@@ -1,8 +1,18 @@
-import random
-
-
-def get_random_nums(size):
-    return [random.randint(0, 10) for num in range(size)]
+#
+# def bubble_sort(nums):
+#     # two nested for loops
+#     # the inner loop swaps adjacent numbers
+#     # can break early using flag if array is already sorted
+#     has_swap = False
+#     for i in range(len(nums)):
+#         for j in range(i + 1, len(nums)):
+#             if nums[i] > nums[j]:
+#                 has_swap = True
+#                 nums[i], nums[j] = nums[j], nums[i]
+#         if not has_swap:
+#             return nums
+#     return nums
+#
 
 
 # def bubble_sort(arr):
@@ -30,10 +40,11 @@ def get_random_nums(size):
 #     return nums
 
 # Implement bubble_sort
+'''
 def bubble_sort(nums):
-    # has_swap = False
+    has_swap = False
     for i in range(0, len(nums) - 1):
-        has_swap = False
+        # has_swap = False
         for j in range(0, len(nums) - i - 1):
             if nums[j] > nums[j + 1]:
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
@@ -41,20 +52,16 @@ def bubble_sort(nums):
         if not has_swap:
             return nums
     return nums
+'''
 
 
-def my_sort(nums):
-    return bubble_sort(nums)
-
-
-def test_sort():
-    unsorted_list = get_random_nums(5)
-    print('original unsorted list: ' + str(unsorted_list))
-    sorted_list = sorted(unsorted_list)
-    print('sorted list: ' + str(sorted_list))
-    my_sorted_list = my_sort(unsorted_list)
-    print('my sorted list: ' + str(my_sorted_list))
-    assert sorted_list == my_sorted_list
-
-
-test_sort()
+def bubble_sort(nums):
+    is_sorted = True
+    for i in range(0, len(nums) - 1):
+        for j in range(0, len(nums) - i - 1):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
+                is_sorted = False
+        if is_sorted:
+            return nums
+    return nums

@@ -1,10 +1,3 @@
-import random
-
-
-def get_random_nums(size):
-    return [random.randint(0, 10) for num in range(size)]
-
-
 class Solution:
     def quicksort(self, arr):
         '''
@@ -123,18 +116,47 @@ class MySolution:
         return partitioning_index
 
 
-def my_sort(nums):
-    return quick_sort(0, len(nums) - 1, nums)
+# def _quicksort(arr):
+#     return quick_sort(arr, 0, len(arr) - 1)
+# def quick_sort(arr, left, right):
+#     if left < right:
+#         Find the position of pivot
+        # pivot_final_resting_position = partition(arr, left, right)
+        # Recursively call left and right subarray to the pivot
+        # quick_sort(arr, left, pivot_final_resting_position - 1)
+        # quick_sort(arr, pivot_final_resting_position + 1, right)
+    # return arr
+# Helper function to perform the partition
+# def partition(arr, left, right):
+    # Here we make the right most element as pivot
+    # middle = (left + right) // 2
+    # pivot = arr[middle]
+    # We re-arrange the array such that
+    # The elements smaller than the pivot are at left to the pivot
+    # And The elements greater than the pivot are at right to the pivot
+    # i = left - 1
+    # for j in range(left, right):
+    #     if arr[j] <= pivot:
+    #         i += 1
+            # swap(arr, i, j)
+    # The pivot comes to its correct position
+    # swap(arr, i + 1, right)
+    # Return the pivot's final resting position
+    # return i + 1
+    # Helper function to swap elements at 2 different array indices
+# def swap(arr, first, second):
+#     arr[first], arr[second] = arr[second], arr[first]
+#
+# def quicksort(nums):
+#     return quicksort(nums)
 
+def quick_sort(arr, begin, end):
+    if begin < end:
+        partition_index = partition(arr, begin, end)
+        quick_sort(arr, begin, partition_index - 1)
+        quick_sort(arr, partition_index + 1, end)
 
-def test_sort():
-    unsorted_list = get_random_nums(5)
-    print('original unsorted list: ' + str(unsorted_list))
-    sorted_list = sorted(unsorted_list)
-    print('sorted list: ' + str(sorted_list))
-    my_sorted_list = my_sort(unsorted_list)
-    print('my sorted list: ' + str(my_sorted_list))
-    assert sorted_list == my_sorted_list
+def partition(arr, begin, end):
+    pivot = arr[begin]
+    pivot_index = begin
 
-
-test_sort()
