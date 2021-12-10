@@ -8,7 +8,7 @@ from quick_sort import _quicksort
 from timeit import default_timer as timer
 from datetime import timedelta
 
-size = 10
+size = 5
 print("Size: " + str(size))
 
 
@@ -34,13 +34,13 @@ class TestSortAlgorithms(unittest.TestCase):
         print('insertion sort:', end=' ')
         self.log_time()
 
-    def xtest_merge_sort(self):
+    def test_merge_sort(self):
         my_sorted_list = merge_sort(self.unsorted_list)
         self.assertEqual(self.sorted_list, my_sorted_list)
         print('mergesort:', end=' ')
         self.log_time()
 
-    def test_quick_sort(self):
+    def xtest_quick_sort(self):
         my_sorted_list = _quicksort(self.unsorted_list)
         self.assertEqual(self.sorted_list, my_sorted_list)
         print('quick sort:', end=' ')
