@@ -61,12 +61,19 @@ def _quicksort(nums):
     return quick_sort(nums, 0, len(nums) - 1)
 
 
+<<<<<<< Updated upstream
 def quick_sort(arr, left, right):
     if left < right:
         pivot_index = partition(arr, left, right)
         quick_sort(arr, left, pivot_index - 1)
         quick_sort(arr, pivot_index + 1, right)
     return arr
+=======
+def partition(arr, begin, end):
+    pivot = arr[begin]
+    pivot_index = begin
+    return 0
+>>>>>>> Stashed changes
 
 
 def partition(arr, left, right):

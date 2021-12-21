@@ -1,3 +1,35 @@
+
+
+
+
+def bubble_sort(nums):
+    is_sorted = True
+    for i in range(0, len(nums) - 1):
+        for j in range(0, len(nums) - i - 1):
+            if nums[j] > nums[j+1]:
+                is_sorted = False
+                nums[j], nums[j+1] = nums[j+1], nums[j]
+        if is_sorted:
+            return nums
+    return nums
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
 # def bubble_sort(nums):
 #     # two nested for loops
@@ -55,7 +87,7 @@ def bubble_sort(nums):
 '''
 
 
-def bubble_sort(nums):
+def xbubble_sort(nums):
     is_sorted = True
     for i in range(0, len(nums) - 1):
         for j in range(0, len(nums) - i - 1):

@@ -1,3 +1,36 @@
+
+def insertion_sort(numbers):
+    for i in range(1, len(numbers)):
+        number_to_insert = numbers[i]
+        j = i - 1
+        while j >= 0 and number_to_insert < numbers[j]:
+            numbers[j+1] = numbers[j]
+            j = j - 1
+        numbers[j + 1] = number_to_insert
+    return numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # def insertion_sort(nums):
 #     for i in range(1, len(nums)):
 #         number = nums[i]
@@ -57,7 +90,7 @@ def insertion_sort(nums):
 '''
 
 
-def insertion_sort(nums):
+def xinsertion_sort(nums):
     for i in (range(1, len(nums))):
         number_to_insert = nums[i]
         j = i - 1

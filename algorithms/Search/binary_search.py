@@ -1,3 +1,63 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def binary_search(numbers, target):
+	left = 0
+	right = len(numbers) - 1
+	while left <= right:
+		mid = (left + right) // 2
+		if numbers[mid] == target:
+			return mid
+		elif numbers[mid] > target:
+			right = mid - 1
+		else:
+			left = mid + 1
+	return -1
+
+
+
+
+
+#     right = len(numbers) - 1
+#     while left <= right:
+#         mid = (left + right) // 2
+#         if target == numbers[mid]:
+#             return mid
+#         elif target < numbers[mid]:
+#             right = mid - 1
+#         else:
+#             left = mid + 1
+#     return -1
+
+
 # def binary_search(numbers, number_to_find):
 # 	# Sort the list if it is not already sorted.
 # 	# This is a critical step(!) as the rest of the algorithm
@@ -50,27 +110,27 @@
 # 	return None
 
 # number must be sorted
-def binary_search(numbers, target):
-    left = 0
-    right = len(numbers) - 1
-    while left <= right:
-        mid = (left + right) // 2
-        if target == numbers[mid]:
-            return mid
-        elif target < numbers[mid]:
-            right = mid - 1
-        else:
-            left = mid + 1
-    return -1
+# def binary_search(numbers, target):
+#     left = 0
+#     right = len(numbers) - 1
+#     while left <= right:
+#         mid = (left + right) // 2
+#         if target == numbers[mid]:
+#             return mid
+#         elif target < numbers[mid]:
+#             right = mid - 1
+#         else:
+#             left = mid + 1
+#     return -1
 
 
 def binary_search_recursive(numbers, target, left, right):
-    if left > right:
-        return -1
-    mid_index = (left + right) // 2
-    if target == numbers[mid_index]:
-        return mid_index
-    elif target < numbers[mid_index]:
-        return binary_search_recursive(numbers, target, left, mid_index - 1)
-    else:
-        return binary_search_recursive(numbers, target, mid_index + 1, right)
+	if left > right:
+		return -1
+	mid_index = (left + right) // 2
+	if target == numbers[mid_index]:
+		return mid_index
+	elif target < numbers[mid_index]:
+		return binary_search_recursive(numbers, target, left, mid_index - 1)
+	else:
+		return binary_search_recursive(numbers, target, mid_index + 1, right)

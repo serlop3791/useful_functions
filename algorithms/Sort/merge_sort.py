@@ -41,6 +41,7 @@
 #     return arr
 
 def merge_sort(numbers):
+<<<<<<< Updated upstream
     if len(numbers) == 1:
         return numbers
     mid = len(numbers) // 2
@@ -60,6 +61,51 @@ def merge(left_list, right_list):
     if len(right_list) > 0:
         sorted_list += right_list
     return sorted_list
+=======
+	if len(numbers) == 1:
+		return numbers
+	mid = len(numbers) // 2
+	left_list = merge_sort(numbers[:mid])
+	right_list = merge_sort(numbers[mid:])
+	return merge(left_list, right_list)
+
+def merge(left_list, right_list):
+	sorted_list = []
+	while len(left_list) > 0 and len(right_list) > 0:
+		if left_list[0] > right_list[0]:
+			sorted_list.append(right_list[0])
+			right_list.pop(0)
+		else:
+			sorted_list.append(left_list[0])
+			left_list.pop(0)
+	if len(left_list) > 0:
+		sorted_list += left_list
+	if len(right_list) > 0:
+		sorted_list += right_list
+	return sorted_list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 
 
 '''
@@ -96,4 +142,8 @@ def merge(left_list, right_list):
         right_list.pop(0)
 
     return sorted_list
+<<<<<<< Updated upstream
 '''
+=======
+'''
+>>>>>>> Stashed changes
